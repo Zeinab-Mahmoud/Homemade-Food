@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="قائمة طعام مطبخ بيتي - استعرض جميع أطباقنا من الأطباق الرئيسية والحلويات والمقبلات. أكلات بيتية بطعم مختلف." />
+    <meta name="keywords" content="قائمة طعام, مطبخ بيتي, كشري, محشي, حلويات, بامية, دجاج" />
+    <meta property="og:title" content="قائمة الطعام - مطبخ بيتي" />
+    <meta property="og:description" content="استعرض قائمة طعامنا الكاملة من الأطباق المصرية البيتية." />
+    <meta property="og:image" content="img/شعار مطبخ بيتي دافئ.png" />
+    <title>قائمة الطعام | مطبخ بيتي</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="img/شعار مطبخ بيتي دافئ.png" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+
+    <!-- ══════════════════════════════════════
+       شريط التنقل
+  ══════════════════════════════════════ -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="القائمة الرئيسية">
+        <a class="navbar-brand" href="index.html" aria-label="مطبخ بيتي - الرئيسية">
+            <img class="navbar-logo" src="img/شعار مطبخ بيتي دافئ.png" alt="شعار مطبخ بيتي" width="52" height="52" />
+        </a>
+
+        <ul class="navbar-nav" id="navMenu" role="list">
+            <li><a class="nav-link" href="index.html">الرئيسية</a></li>
+            <li><a class="nav-link" href="menu.html">قائمة الطعام</a></li>
+        </ul>
+
+        <button class="navbar-toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false"
+            aria-controls="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main>
+
+        <!-- ══════════════════════════════════════
+         بانر الصفحة
+    ══════════════════════════════════════ -->
+        <section class="page-hero" aria-label="قائمة الطعام">
+            <h1 class="page-hero-title">🍽️ قائمة الطعام</h1>
+            <p class="page-hero-sub">استعرض جميع أطباقنا الشهية — مُصنّفة لراحتك</p>
+        </section>
+
+        <!-- ══════════════════════════════════════
+         شريط الفلاتر (sticky أسفل الناف بار)
+    ══════════════════════════════════════ -->
+        <div class="menu-filters-wrap" role="navigation" aria-label="فلاتر الفئات">
+            <div class="menu-filters" id="menuFilters">
+
+                <button class="filter-btn active" data-category="all" id="filter-all" type="button" aria-pressed="true">
+                    الكل
+                    <span class="filter-count" aria-hidden="true">0</span>
+                </button>
+
+                <!-- id="main" يُستخدم كـ anchor من الفوتر -->
+                <button class="filter-btn" data-category="main" id="main" type="button" aria-pressed="false">
+                    🍲 الأطباق الرئيسية
+                    <span class="filter-count" aria-hidden="true">0</span>
+                </button>
+
+                <!-- id="dessert" يُستخدم كـ anchor من الفوتر -->
+                <button class="filter-btn" data-category="dessert" id="dessert" type="button" aria-pressed="false">
+                    🍯 الحلويات
+                    <span class="filter-count" aria-hidden="true">0</span>
+                </button>
+
+                <button class="filter-btn" data-category="side" id="side" type="button" aria-pressed="false">
+                    🥗 السلطات والمقبلات
+                    <span class="filter-count" aria-hidden="true">0</span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════
+         قسم القائمة الرئيسي
+    ══════════════════════════════════════ -->
+        <section class="dishes-section" id="dishesSection" aria-label="قائمة الأطباق">
+            <div class="dishes-section-inner">
+
+                <!-- البحث -->
+                <div class="search-wrap" role="search" aria-label="البحث في القائمة">
+                    <input class="search-input" id="searchInput" type="search" placeholder="ابحث عن طبق..."
+                        aria-label="ابحث عن طبق في القائمة" autocomplete="off" />
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                </div>
+
+                <!-- ملاحظة الأسعار -->
+                <p class="price-disclaimer" role="note">
+                    * الأسعار تقريبية بالجنيه المصري وقابلة للتغيير — يُرجى التواصل للتأكيد
+                </p>
+
+                <!-- عداد النتائج -->
+                <p class="results-count" id="resultsCount" aria-live="polite" aria-atomic="true"></p>
+
+                <!-- شبكة الأطباق — تُعبأ بواسطة menu.js -->
+                <div class="dishes-grid" id="dishesGrid" role="list" aria-label="قائمة الأطباق">
+                    <noscript>
+                        <p style="text-align:center; padding: 2rem; color: var(--brown-light);">
+                            يُرجى تفعيل JavaScript لعرض قائمة الطعام.
+                        </p>
+                    </noscript>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════
+       الفوتر
+  ══════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img class="footer-logo" src="img/شعار مطبخ بيتي دافئ.png" alt="شعار مطبخ بيتي" width="70"
+                    height="70" />
+                <p class="footer-desc">
+                    مطبخ بيتي - أكلات بيتية أصيلة بطعم مختلف.<br />
+                    مُعدّة بأجود المكونات الطازجة وبحب حقيقي.
+                </p>
+            </div>
+
+            <div class="footer-nav">
+                <h3 class="footer-heading">روابط سريعة</h3>
+                <ul class="footer-links" role="list">
+                    <li><a class="footer-link" href="index.html">الرئيسية</a></li>
+                    <li><a class="footer-link" href="menu.html">كامل القائمة</a></li>
+                    <li><a class="footer-link" href="menu.html#main">الأطباق الرئيسية</a></li>
+                    <li><a class="footer-link" href="menu.html#dessert">الحلويات</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-note-wrap">
+                <h3 class="footer-heading">ملاحظة</h3>
+                <p class="footer-note">
+                    الأسعار تقريبية بالجنيه المصري وقابلة للتغيير.<br />
+                    للاستفسار عن التوفر والأسعار النهائية، يُرجى التواصل مباشرةً.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© <span id="footerYear"></span> مطبخ بيتي · صُنع بـ<span class="footer-heart"
+                    aria-label="حب">❤️</span>للأكل البيتي الأصيل</span>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data/dishes.js"></script>
+    <script src="js/data/siteConfig.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+        document.getElementById('footerYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>

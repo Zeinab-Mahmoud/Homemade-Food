@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="مطبخ بيتي - أشهى الأطباق المصرية البيتية بأيدي ماهرة وحب حقيقي. أكلات بيتية بطعم مختلف." />
+  <meta name="keywords" content="مطبخ بيتي, أكل بيتي, مصري, كشري, محشي, حلويات, أكلات" />
+  <meta property="og:title" content="مطبخ بيتي - أكلات بيتية بطعم مختلف" />
+  <meta property="og:description" content="أشهى الأطباق المصرية البيتية بأيدي ماهرة وحب حقيقي." />
+  <meta property="og:image" content="img/شعار مطبخ بيتي دافئ.png" />
+  <title>مطبخ بيتي | الرئيسية</title>
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Preload critical image (logo) for LCP -->
+  <link rel="preload" as="image" href="img/شعار مطبخ بيتي دافئ.png" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* ─── أنماط مخصصة للصفحة الرئيسية ─── */
+
+    /* ── قسم البطل (Hero) ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--brown) 0%, var(--brown-mid) 55%, #7a3d1a 100%);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('img/334fc4b4cb6515b4bf5ece904a29e129.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      filter: blur(2px);
+      transform: scale(1.04);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+          rgba(74, 44, 23, 0.92) 0%,
+          rgba(74, 44, 23, 0.75) 50%,
+          rgba(217, 123, 63, 0.35) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 2rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(217, 123, 63, 0.25);
+      border: 1px solid rgba(217, 123, 63, 0.5);
+      color: var(--terra-light);
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-title {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title .highlight {
+      color: var(--terra-light);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title .highlight::after {
+      content: '';
+      display: none;
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background: var(--terracotta);
+      border-radius: 2px;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.8;
+      margin-bottom: 2.25rem;
+      max-width: 420px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-logo-wrap {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-logo-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px dashed rgba(217, 123, 63, 0.4);
+      animation: spin 25s linear infinite;
+    }
+
+    .hero-logo-ring-inner {
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      border: 2px solid rgba(250, 244, 232, 0.1);
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero-logo-circle {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(250, 244, 232, 0.1);
+      backdrop-filter: blur(12px);
+      border: 2px solid rgba(217, 123, 63, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 40px rgba(217, 123, 63, 0.25);
+    }
+
+    .hero-logo {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+      border-radius: 50%;
+    }
+
+    /* ── قسم المميزات ── */
+    .features-section {
+      background: #fff;
+      padding: 4.5rem 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-radius: var(--radius-lg);
+      background: var(--cream);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feature-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-desc {
+      font-size: 0.88rem;
+      color: var(--brown-light);
+      line-height: 1.6;
+    }
+
+    /* ── قسم الأطباق المميزة ── */
+    .featured-section {
+      background: var(--cream);
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    /* ── قسم الإحصائيات ── */
+    .stats-section {
+      background: linear-gradient(135deg, var(--brown) 0%, var(--brown-mid) 100%);
+      padding: 4rem 0;
+      color: #fff;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--terra-light);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+
+    /* ── قسم المعرض ── */
+    .gallery-section {
+      background: #fff;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .gallery-img-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(74, 44, 23, 0.85) 0%, transparent 50%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* ── قسم الدعوة للتصرف ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--terracotta) 0%, var(--terra-dark) 100%);
+      padding: 5rem 0;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '🍲';
+      position: absolute;
+      font-size: 12rem;
+      opacity: 0.08;
+      top: -2rem;
+      right: -2rem;
+    }
+
+    .cta-section::after {
+      content: '🥘';
+      position: absolute;
+      font-size: 10rem;
+      opacity: 0.06;
+      bottom: -2rem;
+      left: -1rem;
+    }
+
+    .cta-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .cta-desc {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .cta-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem;
+      background: #fff;
+      color: var(--terracotta);
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      border-radius: var(--radius-full);
+      transition: all var(--transition);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ── تصميم الجوال ── */
+    @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 9rem;
+      }
+
+      .hero-desc {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════
+       شريط التنقل
+  ══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="القائمة الرئيسية">
+    <a class="navbar-brand" href="index.html" aria-label="مطبخ بيتي - الرئيسية">
+      <img class="navbar-logo" src="img/شعار مطبخ بيتي دافئ.png" alt="شعار مطبخ بيتي" width="52" height="52" />
+    </a>
+
+    <ul class="navbar-nav" id="navMenu" role="list">
+      <li><a class="nav-link" href="index.html">الرئيسية</a></li>
+      <li><a class="nav-link" href="menu.html">قائمة الطعام</a></li>
+    </ul>
+
+    <button class="navbar-toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════════════════════════
+         قسم البطل
+    ══════════════════════════════════════ -->
+    <section class="hero" aria-label="الترحيب">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content">
+
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span>🏠</span>
+            <span>أكلات بيتية بطعم مختلف</span>
+          </div>
+
+          <h1 class="hero-title">
+            مرحباً في<br />
+            <span class="highlight">مطبخ بيتي</span>
+          </h1>
+
+          <p class="hero-desc">
+            أشهى الأطباق المصرية البيتية الأصيلة، مُعدّة بأجود المكونات الطازجة وبحب حقيقي يصل إلى مائدتك.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="menu.html" id="heroMenuBtn">
+              <span>🍽️</span>
+              استعرض القائمة
+            </a>
+            <a class="btn btn-outline-light" href="#featured" id="heroFeaturedBtn">
+              <span>⭐</span>
+              الأطباق المميزة
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-logo-wrap">
+            <div class="hero-logo-ring"></div>
+            <div class="hero-logo-ring-inner"></div>
+            <div class="hero-logo-circle">
+              <img class="hero-logo" src="img/شعار مطبخ بيتي دافئ.png" alt="شعار مطبخ بيتي" width="200" height="200" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         قسم المميزات
+    ══════════════════════════════════════ -->
+    <section class="features-section" aria-label="مميزاتنا">
+      <div class="section-inner">
+        <div class="features-grid">
+          <div class="feature-card reveal" id="feature-homemade">
+            <span class="feature-icon" aria-hidden="true">🏠</span>
+            <h2 class="feature-title">طعم بيتي أصيل</h2>
+            <p class="feature-desc">وصفات متوارثة بنكهة المطبخ المصري الأصيل</p>
+          </div>
+          <div class="feature-card reveal" id="feature-fresh">
+            <span class="feature-icon" aria-hidden="true">🌿</span>
+            <h2 class="feature-title">مكونات طازجة</h2>
+            <p class="feature-desc">نختار أجود المكونات الطازجة لكل طبق</p>
+          </div>
+          <div class="feature-card reveal" id="feature-love">
+            <span class="feature-icon" aria-hidden="true">❤️</span>
+            <h2 class="feature-title">مُعدّ بحب</h2>
+            <p class="feature-desc">كل طبق يُصنع بعناية وحب لكل تفصيلة</p>
+          </div>
+          <div class="feature-card reveal" id="feature-variety">
+            <span class="feature-icon" aria-hidden="true">🍲</span>
+            <h2 class="feature-title">تنوع واسع</h2>
+            <p class="feature-desc">من الأطباق الرئيسية إلى الحلويات الشهية</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         الأطباق المميزة
+    ══════════════════════════════════════ -->
+    <section class="section featured-section" id="featured" aria-label="الأطباق المميزة">
+      <div class="section-inner">
+        <header class="section-header">
+          <span class="section-label">⭐ أبرز أطباقنا</span>
+          <h2 class="section-title">الأطباق المميزة</h2>
+          <p class="section-subtitle">تشكيلة من أشهر أطباقنا التي يعشقها ضيوفنا</p>
+          <div class="section-divider" aria-hidden="true">
+            <span class="divider-icon">🍴</span>
+          </div>
+        </header>
+
+        <div class="featured-grid" id="featuredGrid" aria-label="قائمة الأطباق المميزة">
+          <!-- تُعبأ بواسطة JavaScript -->
+        </div>
+
+        <div style="text-align:center; margin-top: 2.5rem;">
+          <a class="btn btn-primary" href="menu.html" id="viewAllBtn">
+            عرض كامل القائمة
+            <span aria-hidden="true">←</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         الإحصائيات
+    ══════════════════════════════════════ -->
+    <section class="stats-section" aria-label="إحصائياتنا">
+      <div class="section-inner">
+        <div class="stats-grid">
+          <div class="stat-item reveal" id="stat-dishes">
+            <div class="stat-number" data-target="24" data-suffix="+">0+</div>
+            <div class="stat-label">طبق شهي</div>
+          </div>
+          <div class="stat-item reveal" id="stat-categories">
+            <div class="stat-number" data-target="3" data-suffix="">0</div>
+            <div class="stat-label">فئات متنوعة</div>
+          </div>
+          <div class="stat-item reveal" id="stat-love">
+            <div class="stat-number" data-target="100" data-suffix="٪">0٪</div>
+            <div class="stat-label">حب وعناية</div>
+          </div>
+          <div class="stat-item reveal" id="stat-fresh">
+            <div class="stat-number" data-target="100" data-suffix="٪">0٪</div>
+            <div class="stat-label">مكونات طازجة</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         معرض الصور
+    ══════════════════════════════════════ -->
+    <section class="section gallery-section" aria-label="معرض الصور">
+      <div class="section-inner">
+        <header class="section-header">
+          <span class="section-label">📸 معرض الصور</span>
+          <h2 class="section-title">لحظات من مطبخنا</h2>
+          <p class="section-subtitle">نظرة على بعض أشهى الأطباق التي نقدمها</p>
+          <div class="section-divider" aria-hidden="true">
+            <span class="divider-icon">🍴</span>
+          </div>
+        </header>
+
+        <div class="gallery-grid" id="galleryGrid" aria-label="معرض صور الأطباق">
+          <!-- تُعبأ بواسطة JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         دعوة للتصرف
+    ══════════════════════════════════════ -->
+    <section class="cta-section" aria-label="دعوة لاستعراض القائمة">
+      <div class="section-inner">
+        <h2 class="cta-title">جاهز تطلب طبقك المفضل؟</h2>
+        <p class="cta-desc">تصفّح قائمة طعامنا الكاملة واكتشف كل الأطباق الشهية التي نقدمها.</p>
+        <a class="cta-btn" href="menu.html" id="ctaMenuBtn">
+          <span>🍽️</span>
+          استعرض القائمة الكاملة
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+       الفوتر
+  ══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="img/شعار مطبخ بيتي دافئ.png" alt="شعار مطبخ بيتي" width="70" />
+        <p class="footer-desc">
+          مطبخ بيتي - أكلات بيتية أصيلة بطعم مختلف.<br />
+          مُعدّة بأجود المكونات الطازجة وبحب حقيقي.
+        </p>
+      </div>
+
+      <div class="footer-nav">
+        <h3 class="footer-heading">روابط سريعة</h3>
+        <ul class="footer-links" role="list">
+          <li><a class="footer-link" href="index.html">الرئيسية</a></li>
+          <li><a class="footer-link" href="menu.html">قائمة الطعام</a></li>
+          <li><a class="footer-link" href="#featured">الأطباق المميزة</a></li>
+          <li><a class="footer-link" href="menu.html">الحلويات</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-note-wrap">
+        <h3 class="footer-heading">ملاحظة</h3>
+        <p class="footer-note">
+          الأسعار المعروضة تقريبية بالجنيه المصري وقابلة للتغيير.<br />
+          للاستفسار عن التوفر والأسعار النهائية، يُرجى التواصل مباشرةً.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="footerYear"></span> مطبخ بيتي · صُنع بـ<span class="footer-heart" aria-label="حب">❤️</span>للأكل
+        البيتي الأصيل</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data/dishes.js"></script>
+  <script src="js/data/siteConfig.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>

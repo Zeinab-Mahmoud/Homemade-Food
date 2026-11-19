@@ -1,0 +1,277 @@
+/* ======================================================
+   مطبخ بيتي - responsive.css
+   استجابة الشاشات: جوال، تابلت، سطح مكتب
+   ====================================================== */
+
+/* ── تابلت كبير / سطح مكتب صغير (≤1024px) ── */
+@media (max-width: 1024px) {
+    .section {
+        padding: 4rem 0;
+    }
+
+    /* شبكة الأطباق: 2 أعمدة */
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* شبكة المميزة في الرئيسية: 2 أعمدة */
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* الفوتر: عمودان */
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ── تابلت (≤768px) ── */
+@media (max-width: 768px) {
+
+    /* ناف بار */
+    .navbar {
+        padding: 0 1.25rem;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-nav {
+        position: fixed;
+        top: 72px;
+        right: 0;
+        left: 0;
+        background: rgba(250, 244, 232, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 1.5rem 1.5rem;
+        gap: 0.25rem;
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all var(--transition);
+        border-bottom: 2px solid var(--cream-dark);
+        z-index: 999;
+    }
+
+    .navbar-nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .nav-link {
+        padding: 0.85rem 1rem;
+        font-size: 1.05rem;
+        border-radius: var(--radius-md);
+    }
+
+    /* الأقسام */
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .section-inner {
+        padding: 0 1.25rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    /* بطاقات القائمة */
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* شبكة المميزة */
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* الفوتر: عمود واحد */
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    /* صفحة البطل الداخلية */
+    .page-hero {
+        padding: 7rem 1.5rem 3rem;
+    }
+
+    /* شبكة المميزات */
+    .features-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    /* شبكة المعرض */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* فلتر القائمة */
+    .menu-filters-wrap {
+        top: 64px;
+    }
+
+    .menu-filters {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding: 0 1.25rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .menu-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* إحصائيات */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ── جوال (≤480px) ── */
+@media (max-width: 480px) {
+    html {
+        font-size: 15px;
+    }
+
+    .navbar {
+        height: 64px;
+        padding: 0 1rem;
+    }
+
+    .navbar-nav {
+        top: 64px;
+    }
+
+    .navbar-logo {
+        height: 44px;
+    }
+
+    .section {
+        padding: 2.75rem 0;
+    }
+
+    .section-inner {
+        padding: 0 1rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    /* بطاقات: عمود واحد */
+    .dishes-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .page-hero {
+        padding: 6.5rem 1rem 2.5rem;
+    }
+
+    .page-hero-title {
+        font-size: 1.75rem;
+    }
+
+    /* الفوتر */
+    .footer {
+        padding: 2.5rem 0 1.25rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.25rem;
+        text-align: center;
+        padding: 1rem 2rem 0;
+    }
+
+    /* فلاتر القائمة */
+    .menu-filters-wrap {
+        top: 64px;
+    }
+
+    .menu-filters {
+        gap: 0.5rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0 1rem;
+        scrollbar-width: none;
+    }
+
+    .menu-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.82rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* بحث */
+    .search-wrap {
+        max-width: 100%;
+    }
+
+    /* قسم hero الرئيسي */
+    .hero-content {
+        padding-top: 7rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+}
+
+/* ── شاشات كبيرة جداً (≥1400px) ── */
+@media (min-width: 1400px) {
+    .section-inner {
+        max-width: 1320px;
+    }
+
+    .footer-inner {
+        max-width: 1320px;
+    }
+
+    .footer-bottom {
+        max-width: 1320px;
+    }
+}
